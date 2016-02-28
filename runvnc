@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+	echo $0: usage: run container_name
+	exit 1
+fi
+
+sudo nvidia-docker run -d --publish=15901:5901 --publish=16901:6901 --name=$1 --volume=$(pwd):/mydata hmlatapie/deepq_vnc 
+
+
